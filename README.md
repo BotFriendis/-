@@ -3,73 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bot Friends do Xinglau</title>
+  <title>Bot Friends</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(135deg, #ffccff, #ccffff);
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
       color: #333;
       text-align: center;
     }
     header {
-      background-color: #ff99cc;
+      background-color: #222;
       padding: 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      color: white;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5em;
-      color: #fff;
+      font-size: 3em;
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+      letter-spacing: 2px;
     }
     .bots-container {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 200px);
+      grid-gap: 20px;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 30px 10px;
     }
     .bot-card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      margin: 20px;
-      width: 250px;
-      transition: transform 0.3s;
+      background: #f0f0f0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       cursor: pointer;
+      transition: 0.3s;
+      width: 200px;
+      user-select: none;
     }
     .bot-card:hover {
       transform: scale(1.05);
     }
     .bot-image {
       width: 100%;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+      pointer-events: none;
     }
     .bot-info {
-      padding: 20px;
+      padding: 15px;
+    }
+    .bot-info h2, .bot-info p {
+      font-family: 'Pacifico', cursive;
     }
     .bot-info h2 {
-      margin: 0 0 10px;
-      color: #ff6699;
+      margin: 10px 0 5px;
+      font-size: 1.8em;
+      font-weight: 400;
     }
     .bot-info p {
       margin: 0;
+      font-size: 1.1em;
+      color: #555;
+    }
+    .bot-card:nth-child(4),
+    .bot-card:nth-child(5) {
+      justify-self: center;
     }
     footer {
-      background-color: #ff99cc;
-      color: #fff;
+      background-color: #222;
+      color: white;
       padding: 10px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
+      font-size: 0.9em;
+      margin-top: 30px;
     }
-    .video-section {
-      margin: 40px 0;
+    @media (max-width: 660px) {
+      .bots-container {
+        grid-template-columns: repeat(2, 200px);
+      }
+      .bot-card:nth-child(4),
+      .bot-card:nth-child(5) {
+        justify-self: start;
+      }
     }
-    .video-section iframe {
+    @media (max-width: 440px) {
+      .bots-container {
+        grid-template-columns: 1fr;
+      }
+      .bot-card {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+    .video-container {
+      margin: 30px auto;
       width: 80%;
-      max-width: 560px;
-      height: 315px;
+      max-width: 800px;
+    }
+    iframe {
+      width: 100%;
+      height: 450px;
       border: none;
       border-radius: 10px;
     }
@@ -78,61 +112,54 @@
 <body>
 
   <header>
-    <h1>Conheça os Bot Friends do Xinglau!</h1>
+    <h1>Bot Friends</h1>
   </header>
 
   <div class="bots-container">
-    <div class="bot-card" onclick="showBotInfo('Red Bot', 'O líder corajoso da equipe, sempre pronto para enfrentar desafios.')">
-      <img class="bot-image" src="https://via.placeholder.com/250x150/ff6666/ffffff?text=Red+Bot" alt="Red Bot">
+    <div class="bot-card" onclick="alert('Corajoso e destemido. Avaliação: ⭐⭐⭐⭐')">
+      <img class="bot-image" src="https://dummyimage.com/200x150/ffffff/000000&text=Red+Bot" alt="Red Bot">
       <div class="bot-info">
         <h2>Red Bot</h2>
-        <p>O líder corajoso da equipe.</p>
+        <p>Corajoso e destemido.</p>
       </div>
     </div>
-    <div class="bot-card" onclick="showBotInfo('Blue Bot', 'O estrategista inteligente, conhecido por suas soluções criativas.')">
-      <img class="bot-image" src="https://via.placeholder.com/250x150/6699ff/ffffff?text=Blue+Bot" alt="Blue Bot">
+    <div class="bot-card" onclick="alert('O mais esperto do time. Avaliação: ⭐⭐⭐⭐⭐')">
+      <img class="bot-image" src="https://dummyimage.com/200x150/ffffff/000000&text=Blue+Bot" alt="Blue Bot">
       <div class="bot-info">
         <h2>Blue Bot</h2>
-        <p>O estrategista inteligente.</p>
+        <p>O mais esperto do time.</p>
       </div>
     </div>
-    <div class="bot-card" onclick="showBotInfo('Purple Bot', 'O especialista em tecnologia, sempre com os gadgets mais avançados.')">
-      <img class="bot-image" src="https://via.placeholder.com/250x150/9966cc/ffffff?text=Purple+Bot" alt="Purple Bot">
+    <div class="bot-card" onclick="alert('Especialista em tecnologia. Avaliação: ⭐⭐⭐⭐')">
+      <img class="bot-image" src="https://dummyimage.com/200x150/ffffff/000000&text=Purple+Bot" alt="Purple Bot">
       <div class="bot-info">
         <h2>Purple Bot</h2>
-        <p>O especialista em tecnologia.</p>
+        <p>Especialista em tecnologia.</p>
       </div>
     </div>
-    <div class="bot-card" onclick="showBotInfo('Pink Bot', 'A otimista do grupo, trazendo alegria e motivação para todos.')">
-      <img class="bot-image" src="https://via.placeholder.com/250x150/ff99cc/ffffff?text=Pink+Bot" alt="Pink Bot">
+    <div class="bot-card" onclick="alert('Sempre alegre e animada. Avaliação: ⭐⭐⭐⭐')">
+      <img class="bot-image" src="https://dummyimage.com/200x150/ffffff/000000&text=Pink+Bot" alt="Pink Bot">
       <div class="bot-info">
         <h2>Pink Bot</h2>
-        <p>A otimista do grupo.</p>
+        <p>Sempre alegre e animada.</p>
       </div>
     </div>
-    <div class="bot-card" onclick="showBotInfo('Black Bot', 'O misterioso e poderoso membro da equipe, com habilidades únicas.')">
-      <img class="bot-image" src="https://via.placeholder.com/250x150/000000/ffffff?text=Black+Bot" alt="Black Bot">
+    <div class="bot-card" onclick="alert('O misterioso do grupo e o mais forte. Avaliação: ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐')">
+      <img class="bot-image" src="https://dummyimage.com/200x150/ffffff/000000&text=Black+Bot" alt="Black Bot">
       <div class="bot-info">
         <h2>Black Bot</h2>
-        <p>O misterioso e poderoso membro da equipe.</p>
+        <p>O misterioso do grupo e o mais forte.</p>
       </div>
     </div>
   </div>
 
-  <div class="video-section">
-    <h2>Assista à aventura dos Bot Friends!</h2>
-    <iframe src="https://www.youtube.com/embed/O__ARsDRLyU" allowfullscreen></iframe>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/O__ARsDRLyU" title="Bot Friends - Todos os Bots" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
   <footer>
-    <p>© 2025 BauersXinglau. Todos os direitos reservados.</p>
+    © 2025 Xinglau Bot Friends.
   </footer>
-
-  <script>
-    function showBotInfo(name, description) {
-      alert(name + ":\n" + description);
-    }
-  </script>
 
 </body>
 </html>
